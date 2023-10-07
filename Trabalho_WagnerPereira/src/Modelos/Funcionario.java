@@ -33,7 +33,7 @@ public class Funcionario {
     
     public String Senha;
     
-    // ideia opro futuro
+    // ideia o pro futuro
     public String gerarMatricula(){
         Random random = new Random();
         String ret = random.longs(0, 10000).toString();
