@@ -1,6 +1,6 @@
 
 import Dao.ConexaoBanco;
-import Dao.FuncionarioDao;
+import Dao.FuncionariosDao;
 import Telas.Principal;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -48,7 +48,6 @@ public class Login extends JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(810, 550));
         setMinimumSize(new java.awt.Dimension(810, 550));
         setResizable(false);
         setSize(new java.awt.Dimension(810, 550));
@@ -156,7 +155,7 @@ public class Login extends JFrame {
         this.email = jTextField1.getText();
         this.password = jPasswordField1.getText();
         
-        FuncionarioDao func = new FuncionarioDao();
+        FuncionariosDao func = new FuncionariosDao();
         if (func.consultarLogin(email, password) || (this.email.equals("admin") && this.password.equals("admin"))) {
             JFrame menu = new Principal();
             menu.setVisible(true);

@@ -5,8 +5,8 @@
  */
 package Telas;
 
-import Dao.FuncionariosDao;
-import Modelos.Funcionarios;
+import Dao.PacientesDao;
+import Modelos.Pacientes;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
@@ -14,17 +14,17 @@ import javax.swing.DefaultListModel;
  *
  * @author 202202189278
  */
-public class Listar_Colaboradores extends javax.swing.JFrame {
+public class Listar_Pacientes extends javax.swing.JFrame {
         
     /**
      * Creates new form Listar_Colaboradores
      */
-    public Listar_Colaboradores() {
+    public Listar_Pacientes() {
         initComponents();
         setSize(810, 550);
         setTitle("Sistema de Saúde - Listar colaboradores");
         setResizable(false);
-        listarColaboradores();
+        listarPacientes();
     }
 
     /**
@@ -55,7 +55,7 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Colaboradores");
+        jLabel1.setText("Clientes");
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton1.setText("Cadastrar");
@@ -77,7 +77,7 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         });
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jTextField1.setText("Pesquisar colaborador(a)");
+        jTextField1.setText("Pesquisar pacientes");
         jTextField1.setToolTipText("Pesquisar colaborador(a)");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,12 +108,12 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 281, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(171, 171, 171)
+                                .addGap(217, 217, 217)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(11, 11, 11)))))
                 .addGap(22, 22, 22))
@@ -166,7 +166,7 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Cadastro_Usuarios cadastro = new Cadastro_Usuarios();
+        Cadastro_Pacientes cadastro = new Cadastro_Pacientes();
         cadastro.setVisible(true);
         dispose();
 
@@ -187,13 +187,13 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public void listarColaboradores() {
-        FuncionariosDao func = new FuncionariosDao();
-        ArrayList<Funcionarios> list = func.consultar();
+    public void listarPacientes() {
+        PacientesDao func = new PacientesDao();
+        ArrayList<Pacientes> list = func.consultar();
         jList1.removeAll();
 
         DefaultListModel model = new DefaultListModel();
-        for (Funcionarios s : list) {
+        for (Pacientes s : list) {
             jList1.setModel(model);
             model.addElement(s.getNomeCompleto());
         }
@@ -216,20 +216,21 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Listar_Colaboradores().setVisible(true);
+                new Listar_Pacientes().setVisible(true);
             }
         });
     }

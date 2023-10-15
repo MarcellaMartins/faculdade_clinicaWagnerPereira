@@ -5,8 +5,8 @@
  */
 package Telas;
 
-import Dao.FuncionarioDao;
-import Modelos.Funcionario;
+import Dao.FuncionariosDao;
+import Modelos.Funcionarios;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Cadastro_Usuarios extends javax.swing.JFrame {
 
-    Funcionario func = new Funcionario();
+    Funcionarios func = new Funcionarios();
     String confirmarSenha = "";
 
     /**
@@ -27,6 +27,7 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
         setTitle("Sistema de Saúde - Cadastro de Usuários");
         setResizable(false);
         limparCampos();
+        func.gerarMatricula();
     }
 
     /**
@@ -169,11 +170,7 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
 
         jLabel11.setText("Senha");
 
-        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField7FocusLost(evt);
-            }
-        });
+        jTextField7.setEditable(false);
 
         jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -285,7 +282,7 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel15))
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 51, Short.MAX_VALUE))))
+                        .addGap(0, 55, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,42 +377,37 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
         // TODO add your handling code here: cpf
-        func.Cpf = jTextField2.getText();
+        func.setCpf(jTextField2.getText());
     }//GEN-LAST:event_jTextField2FocusLost
 
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
         // TODO add your handling code here: telefone
-        func.Telefone = jTextField3.getText();
+        func.setTelefone(jTextField3.getText());
     }//GEN-LAST:event_jTextField3FocusLost
 
     private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
         // TODO add your handling code here: coren/crn
-        func.Coren = jTextField4.getText();
+        func.setCoren(jTextField4.getText());
     }//GEN-LAST:event_jTextField4FocusLost
 
     private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
         // TODO add your handling code here: email
-        func.Email = jTextField5.getText();
+        func.setEmail(jTextField5.getText().trim());
     }//GEN-LAST:event_jTextField5FocusLost
 
     private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
         // TODO add your handling code here: formacao
-        func.Formacao = jTextField6.getText();
+        func.setFormacao(jTextField6.getText());
     }//GEN-LAST:event_jTextField6FocusLost
 
     private void jComboBox1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox1FocusLost
         // TODO add your handling code here: especialidade
-        func.EspecialidadeId = jComboBox1.getSelectedIndex();
+        func.setEspecialidadeId(jComboBox1.getSelectedIndex());
     }//GEN-LAST:event_jComboBox1FocusLost
-
-    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
-        // TODO add your handling code here: matricula
-        func.Matricula = jTextField7.getText();
-    }//GEN-LAST:event_jTextField7FocusLost
 
     private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
         // TODO add your handling code here: senha
-        func.Senha = jPasswordField1.getText();
+        func.setSenha(jPasswordField1.getText());
     }//GEN-LAST:event_jPasswordField1FocusLost
 
     private void jPasswordField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField2FocusLost
@@ -426,7 +418,7 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here: salvar o funcionario
         if (ValidarDados()) {
-            FuncionarioDao f = new FuncionarioDao();
+            FuncionariosDao f = new FuncionariosDao();
             try {
                 f.inserir(func);
                 JOptionPane.showMessageDialog(jButton1, "Dados salvo com sucesso!");
@@ -439,7 +431,7 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
         // TODO add your handling code here:
-        func.NomeCompleto = jTextField1.getText();
+        func.setNomeCompleto(jTextField1.getText());
     }//GEN-LAST:event_jTextField1FocusLost
 
     public void limparCampos() {
@@ -457,47 +449,47 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
 
     public boolean ValidarDados() {
 
-        if (func.NomeCompleto == null || (func.NomeCompleto.isEmpty() || func.NomeCompleto.trim().equals(""))) {
+        if (func.getNomeCompleto() == null || (func.getNomeCompleto().isEmpty() || func.getNomeCompleto().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Nome Completo' não pode ficar em branco!");
             return false;
         }
 
-        if (func.Cpf == null || (func.Cpf.isEmpty() || func.Cpf.trim().equals(""))) {
+        if (func.getCpf() == null || (func.getCpf().isEmpty() || func.getCpf().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Cpf' não pode ficar em branco! salvo com sucesso!");
             return false;
         }
 
-        if (func.Telefone == null || (func.Telefone.isEmpty() || func.Telefone.trim().equals(""))) {
+        if (func.getTelefone() == null || (func.getTelefone().isEmpty() || func.getTelefone().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Telefone' não pode ficar em branco!");
             return false;
         }
 
-        if (func.Email == null || (func.Email.isEmpty() || func.Email.trim().equals(""))) {
+        if (func.getEmail() == null || (func.getEmail().isEmpty() || func.getEmail().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Email' não pode ficar em branco!");
             return false;
         }
 
-        if (func.Coren == null || (func.Coren.isEmpty() || func.Coren.trim().equals(""))) {
+        if (func.getCoren() == null || (func.getCoren().isEmpty() || func.getCoren().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Coren' não pode ficar em branco!");
             return false;
         }
 
-        if (func.EspecialidadeId < 0) {
+        if (func.getEspecialidadeId() < 0) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Especialidade' não pode ficar em branco!");
             return false;
         }
 
-        if (func.Formacao == null || (func.Formacao.isEmpty() || func.Formacao.trim().equals(""))) {
+        if (func.getFormacao() == null || (func.getFormacao().isEmpty() || func.getFormacao().trim().equals(""))) {
+            JOptionPane.showMessageDialog(jButton1, "Campo 'Formação' não pode ficar em branco!");
+            return false;
+        }
+
+        if (func.getMatricula() == null || (func.getMatricula().isEmpty() || func.getMatricula().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Matrícula' não pode ficar em branco!");
             return false;
         }
 
-        if (func.Matricula == null || (func.Matricula.isEmpty() || func.Matricula.trim().equals(""))) {
-            JOptionPane.showMessageDialog(jButton1, "Campo 'Matrícula' não pode ficar em branco!");
-            return false;
-        }
-
-        if (func.Senha == null || (func.Senha.isEmpty() || func.Senha.trim().equals(""))) {
+        if (func.getSenha() == null || (func.getSenha().isEmpty() || func.getSenha().trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Senhas' não pode ficar em branco!");
             return false;
         }
@@ -505,7 +497,7 @@ public class Cadastro_Usuarios extends javax.swing.JFrame {
         if (confirmarSenha == null || (confirmarSenha.isEmpty() || confirmarSenha.trim().equals(""))) {
             JOptionPane.showMessageDialog(jButton1, "Campo 'Confirmação de Senha' não pode ficar em branco!");
             return false;
-        } else if (!confirmarSenha.equals(func.Senha)) {
+        } else if (!confirmarSenha.equals(func.getSenha())) {
             JOptionPane.showMessageDialog(jButton1, "A confirmação de senha não é compatível com Senha!");
             return false;
         }

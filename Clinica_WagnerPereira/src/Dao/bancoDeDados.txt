@@ -1,6 +1,6 @@
 CREATE DATABASE clinicaWagnerPereira
 
-CREATE TABLE `funcionarios` (
+CREATE TABLE `Funcionarios` (
 `Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `NomeCompleto` varchar(250) NOT NULL,
 `Email` varchar(100) NOT NULL,
@@ -13,10 +13,29 @@ CREATE TABLE `funcionarios` (
 `EspecialidadeId` int(11) NULL
 )
 
-INSERT into funcionarios
+INSERT into Funcionarios
 (NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
-("Marcella","Marcella@gmail.com","1002354","219856357", "123665478", "Estacio","admin","admin123",0);
+("Marcella","Marcella@gmail.com","1002354","219856357", "123665478", "Estacio","admin1","admin123",0);
 
-INSERT into funcionarios
+INSERT into Funcionarios
 (NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
-("Caio","Caio@gmail.com","1078775","219774412", "174727", "Estacio","admin","Admin", 0);
+("Caio","Caio@gmail.com","1078775","219774412", "174727", "Estacio","admin2","Admin", 0);
+
+CREATE TABLE `Pacientes` (
+`Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`NomeCompleto` varchar(250) NOT NULL,
+`Email` varchar(100) NOT NULL,
+`Cpf` varchar(15) NOT NULL UNIQUE,
+`Tipo_Sanguinio` char(3) NOT NULL,
+`Sexo` char(1) NOT NULL,
+`Telefone` varchar(15) NOT NULL,
+`Contato_Emergencial` varchar(15) NOT NULL,
+`TemPlano` boolean NOT NULL,
+`PlanoId` int NULL,
+`Observacoes` varchar(250) NULL
+)
+
+CREATE TABLE `Agendamentos` (
+`Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+)
