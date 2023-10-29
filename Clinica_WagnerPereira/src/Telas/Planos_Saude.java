@@ -49,7 +49,7 @@ public class Planos_Saude extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(810, 550));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(143, 203, 253));
         jPanel1.setMaximumSize(new java.awt.Dimension(810, 510));
         jPanel1.setPreferredSize(new java.awt.Dimension(810, 510));
 
@@ -90,7 +90,7 @@ public class Planos_Saude extends javax.swing.JFrame {
         jTextArea7.setPreferredSize(new java.awt.Dimension(100, 100));
         jScrollPane7.setViewportView(jTextArea7);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/btn_voltar.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/btn_voltar.PNG"))); // NOI18N
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -106,7 +106,7 @@ public class Planos_Saude extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addContainerGap(224, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(181, 181, 181)
                 .addComponent(jButton7)
