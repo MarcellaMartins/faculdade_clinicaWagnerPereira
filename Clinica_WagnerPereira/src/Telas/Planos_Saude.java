@@ -5,12 +5,16 @@
  */
 package Telas;
 
+import Dao.FuncionariosDao;
+import Modelos.Funcionarios;
+
 /**
  *
  * @author 202202189278
  */
 public class Planos_Saude extends javax.swing.JFrame {
 
+    Funcionarios funcionarioAtivo;
     /**
      * Creates new form Planos_Saude
      */
@@ -19,6 +23,10 @@ public class Planos_Saude extends javax.swing.JFrame {
         setSize(810, 550);
         setTitle("Sistema de Saúde - Planos");
         setResizable(false);
+    }
+    
+    public void receberDados(Funcionarios funcAtivo) {
+        funcionarioAtivo = funcAtivo;
     }
 
     /**
@@ -33,15 +41,11 @@ public class Planos_Saude extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
         jButton7 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(810, 550));
@@ -49,7 +53,7 @@ public class Planos_Saude extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(810, 550));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(143, 203, 253));
         jPanel1.setMaximumSize(new java.awt.Dimension(810, 510));
         jPanel1.setPreferredSize(new java.awt.Dimension(810, 510));
 
@@ -60,37 +64,7 @@ public class Planos_Saude extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Aceitamos os seguintes planos");
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setText("\tAMIL\n*Tomografia\t*Gastrointestinal\n*Radiologia\t*Clínico Geral\n*Odontologia\t*Fezes\n*Anjoradiologia\t*Cárdio");
-        jTextArea2.setDisabledTextColor(new java.awt.Color(102, 204, 255));
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jTextArea5.setEditable(false);
-        jTextArea5.setColumns(20);
-        jTextArea5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea5.setRows(5);
-        jTextArea5.setText("                         Saúde Caixa\n*Tomografia\t*Clínico Geral\n*Radiologia\t*Fezes\n*Odontologia\t\n*Anjoradiologia\t");
-        jScrollPane5.setViewportView(jTextArea5);
-
-        jTextArea6.setEditable(false);
-        jTextArea6.setColumns(20);
-        jTextArea6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea6.setRows(5);
-        jTextArea6.setText("                         Sul América\n*Tomografia\t*Gastrointestinal\n*Radiologia\t*Clínico Geral\n*Odontologia\t\n*Fezes");
-        jScrollPane6.setViewportView(jTextArea6);
-
-        jTextArea7.setEditable(false);
-        jTextArea7.setColumns(20);
-        jTextArea7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea7.setRows(5);
-        jTextArea7.setText("                         Golden Cross\n*Tomografia\t*Gastrointestinal\n*Radiologia\t*Clínico Geral\n*Odontologia\t*Fezes\n*Anjoradiologia\t*Cárdio");
-        jTextArea7.setPreferredSize(new java.awt.Dimension(100, 100));
-        jScrollPane7.setViewportView(jTextArea7);
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/btn_voltar.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/btn_voltar.PNG"))); // NOI18N
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -101,12 +75,20 @@ public class Planos_Saude extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Planodesaude1.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Planodesaude2.PNG"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Planodesaude3.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Planodesaude4.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(181, 181, 181)
                 .addComponent(jButton7)
@@ -114,40 +96,38 @@ public class Planos_Saude extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel2))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(119, 119, 119)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))
-                        .addGap(95, 95, 95)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(jScrollPane6))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel2)))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addGap(67, 67, 67)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6))
-                .addGap(29, 29, 29))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel2)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)))
+                    .addComponent(jLabel5))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,6 +149,7 @@ public class Planos_Saude extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         Principal principal = new Principal();
+        principal.receberDados(funcionarioAtivo);
         principal.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -212,14 +193,10 @@ public class Planos_Saude extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
     // End of variables declaration//GEN-END:variables
 }

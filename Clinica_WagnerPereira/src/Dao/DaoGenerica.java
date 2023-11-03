@@ -16,9 +16,9 @@ public interface DaoGenerica<ObjetoGenerico> {
 
     public void inserir(ObjetoGenerico obj);
 
-    public void altera(ObjetoGenerico obj);
+    public void alterar(ObjetoGenerico obj);
 
-    public void excluir(ObjetoGenerico obj);
+    public void excluir(int id);
 
     public ArrayList<ObjetoGenerico> consultar();
 }

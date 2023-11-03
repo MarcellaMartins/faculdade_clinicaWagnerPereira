@@ -1,22 +1,42 @@
-CREATE DATABASE clinicaWagnerPereira
+CREATE DATABASE clinicaWagnerPereira;
 
-CREATE TABLE `funcionarios` (
-`Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`NomeCompleto` varchar(250) NOT NULL,
-`Email` varchar(100) NOT NULL,
-`Cpf` varchar(15) NOT NULL,
-`Telefone` varchar(15) NOT NULL,
-`Coren` varchar(30) NOT NULL,
-`Formacao` varchar(100) NOT NULL,
-`Matricula` varchar(30) NOT NULL UNIQUE,
-`Senha` varchar(30) NOT NULL,
-`EspecialidadeId` int(11) NULL
-)
+CREATE TABLE `Funcionarios` (
+    `Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `NomeCompleto` varchar(250) NOT NULL,
+    `Email` varchar(100) NOT NULL,
+    `Cpf` varchar(15) NOT NULL,
+    `Telefone` varchar(15) NOT NULL,
+    `Coren` varchar(30) NOT NULL,
+    `Formacao` varchar(100) NOT NULL,
+    `Matricula` varchar(30) NOT NULL UNIQUE,
+    `Senha` varchar(30) NOT NULL,
+    `EspecialidadeId` int NULL
+);
 
-INSERT into funcionarios
-(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
-("Marcella","Marcella@gmail.com","1002354","219856357", "123665478", "Estacio","admin","admin123",0);
+CREATE TABLE `Pacientes` (
+    `Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `NomeCompleto` varchar(250) NOT NULL,
+    `Email` varchar(100) NOT NULL,
+    `Cpf` varchar(15) NOT NULL UNIQUE,
+    `Tipo_Sanguinio` char(3) NOT NULL,
+    `Sexo` char(3) NOT NULL,
+    `Telefone` varchar(15) NOT NULL,
+    `Contato_Emergencial` varchar(15) NOT NULL,
+    `TemPlano` boolean NOT NULL,
+    `PlanoId` Int NULL,
+    `Observacoes` varchar(250) NULL
+);
 
-INSERT into funcionarios
-(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
-("Caio","Caio@gmail.com","1078775","219774412", "174727", "Estacio","admin","Admin", 0);
+CREATE TABLE `Agendamentos` (
+    `Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `PacienteId` int NOT NULL,
+    `DataConsulta` varchar(10) NOT NULL,
+    `HoraConsulta` varchar(10) NOT NULL,
+    `TipoConsultaId` int NOT NULL,
+    `DoutorId` int NOT NULL,
+    `ValorConsulta` double NOT NULL,
+    `Desconto` int NULL,
+    `Observacoes` varchar(250) NULL ,
+    FOREIGN KEY (PacienteId) REFERENCES Pacientes(Id),
+    FOREIGN KEY (DoutorId) REFERENCES Funcionarios(Id)
+);
