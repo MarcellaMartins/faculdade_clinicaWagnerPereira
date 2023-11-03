@@ -10,6 +10,7 @@ import Assets.Validar;
 import Dao.PacientesDao;
 import Modelos.Funcionarios;
 import Modelos.Pacientes;
+import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -81,7 +82,10 @@ public class Cadastro_Pacientes extends javax.swing.JFrame {
             jComboBox2.setEnabled(false);
         }
 
-        jComboBox1.setSelectedIndex(0);
+        Mock m = new Mock();
+        String[] sangue = m.GetTipo_Sanguineo();
+        int tipoId = Arrays.asList(sangue).indexOf(f.getTipo_Sanguineo());
+        jComboBox1.setSelectedIndex(tipoId);
         jComboBox3.setSelectedIndex(0);
 
         // jComboBox1.setSelectedIndex(f.getTipo_Sanguineo());

@@ -337,7 +337,11 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios> {
                 
                 query.close();
                 this.conexao.getConnection().close();
-                return list.get(0).getId();
+                
+                if (!list.isEmpty()) {
+                    return list.get(0).getId();
+                }
+                return 0;
             }
         } catch (SQLException e) {
             System.err.println("Error to select data");
