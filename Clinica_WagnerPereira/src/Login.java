@@ -156,7 +156,7 @@ public class Login extends JFrame {
 
         FuncionariosDao func = new FuncionariosDao();
         int id = func.consultarLogin(email, password);
-        if (id > 0 || (this.email.equals("admin") && this.password.equals("admin"))) {
+        if (id > 0) {
             Principal menu = new Principal();
             Funcionarios f = func.consultarId(id);
             menu.receberDados(f);
