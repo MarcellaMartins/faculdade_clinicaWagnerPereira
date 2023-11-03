@@ -1,0 +1,41 @@
+INSERT into Funcionarios
+(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
+("Marcella","Marcella@gmail.com","1002354","219856357", "14523", "Estacio","112233","admin123",0);
+
+INSERT into Funcionarios
+(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
+("Caio","Caio@gmail.com","10787705","219774412", "10236", "Estacio","445566","Admin", 1);
+
+INSERT into Funcionarios
+(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
+("Jorge","jorge@gmail.com","11223344","219855-6142", "10456", "Estacio","778899","Admin", 2);
+
+INSERT into Funcionarios
+(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
+("Carla","Carla@gmail.com","4412563","219774412", "10236", "Estacio","14758","Admin", 3);
+
+INSERT into Funcionarios
+(NomeCompleto, Email, Cpf, Telefone, Coren, Formacao, Matricula, Senha, EspecialidadeId) VALUES 
+("Keytlin","Keytlin@gmail.com", "7412365", "(21) 9855-6142", "13635", "Estacio","6655123","Admin", 4);
+
+
+--Pacientes
+INSERT INTO `pacientes` 
+(`NomeCompleto`, `Email`, `Cpf`, `Tipo_Sanguinio`, `Sexo`, `Telefone`, `Contato_Emergencial`, `TemPlano`, `PlanoId`, `Observacoes`) 
+VALUES('Mariana Gonçalves', 'marianagonçalves@email.com', '999.999.999-99', 'AB+', 'F', '(21) 2112-1122', '(12) 98777-5555', 1, 2, null);
+
+INSERT INTO `pacientes` 
+(`NomeCompleto`, `Email`, `Cpf`, `Tipo_Sanguinio`, `Sexo`, `Telefone`, `Contato_Emergencial`, `TemPlano`, `PlanoId`, `Observacoes`) 
+VALUES('Vannessa Santana', 'vannessaSanta11@email.com', '777.874.777-12', 'A+', 'F', '(21) 3252-7787', '(12) 92336-1236', 0, 0, null);
+
+INSERT INTO `pacientes` 
+(`NomeCompleto`, `Email`, `Cpf`, `Tipo_Sanguinio`, `Sexo`, `Telefone`, `Contato_Emergencial`, `TemPlano`, `PlanoId`, `Observacoes`) 
+VALUES('Thiago Ferreira', 'ferreiraThithi@email.com', '144.102.142-7', 'O+', 'M', '(21) 1235-7745', '(12) 8854-2021', 1, 3, 'Prefere ser chamado de ela');
+
+INSERT INTO `pacientes` 
+(`NomeCompleto`, `Email`, `Cpf`, `Tipo_Sanguinio`, `Sexo`, `Telefone`, `Contato_Emergencial`, `TemPlano`, `PlanoId`, `Observacoes`) 
+VALUES('Fiona Tatu', 'tatuona@email.com', '112.015.441-3', 'O-', 'F', '(21) 2112-1122', '(12) 98777-5555', 1, 1, null);
+
+INSERT INTO `pacientes` 
+(`NomeCompleto`, `Email`, `Cpf`, `Tipo_Sanguinio`, `Sexo`, `Telefone`, `Contato_Emergencial`, `TemPlano`, `PlanoId`, `Observacoes`) 
+VALUES('Cameron Cuzcuz', 'cuzcuz33cameroon@email.com', '999.101.221-9', 'AB+', 'M', '(21) 2221-0011', '(12) 3177-4455', 1, 2, null);

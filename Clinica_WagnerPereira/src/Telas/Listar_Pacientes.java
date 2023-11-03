@@ -5,9 +5,9 @@
  */
 package Telas;
 
-import Assets.Mock;
-import Dao.FuncionariosDao;
+import Dao.PacientesDao;
 import Modelos.Funcionarios;
+import Modelos.Pacientes;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,16 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 202202189278
  */
-public class Listar_Colaboradores extends javax.swing.JFrame {
+public class Listar_Pacientes extends javax.swing.JFrame {
 
     Funcionarios funcionarioAtivo;
-    Mock mock = new Mock();
-    String[] especialidades = mock.GetEspecialidades();
 
     /**
      * Creates new form Listar_Colaboradores
      */
-    public Listar_Colaboradores() {
+    public Listar_Pacientes() {
         initComponents();
         setSize(810, 550);
         setTitle("Sistema de Saúde - Listar colaboradores");
@@ -51,11 +49,11 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(810, 550));
@@ -67,7 +65,7 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Colaboradores");
+        jLabel1.setText("Clientes");
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/btn_voltar.PNG"))); // NOI18N
@@ -81,7 +79,7 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         });
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jTextField1.setText("Pesquisar colaborador(a)");
+        jTextField1.setText("Pesquisar pacientes");
         jTextField1.setToolTipText("Pesquisar colaborador(a)");
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,11 +95,11 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jButton4.setText("Cadastrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -120,23 +118,21 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         ));
         jTable2.setToolTipText("");
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable2.setRowSorter(null);
-        jTable2.setUpdateSelectionOnSort(false);
         jScrollPane2.setViewportView(jTable2);
 
-        jButton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton4.setText("Apagar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jButton7.setText("Apagar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton5.setText("Editar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButton8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jButton8.setText("Editar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton8ActionPerformed(evt);
             }
         });
 
@@ -152,9 +148,9 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 285, Short.MAX_VALUE)
+                        .addGap(0, 347, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(171, 171, 171)
+                        .addGap(217, 217, 217)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)))
                 .addGap(22, 22, 22))
@@ -164,34 +160,34 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(16, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(402, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(130, 130, 130)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(130, Short.MAX_VALUE)))
         );
 
@@ -219,6 +215,14 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here: voltar
+        Principal principal = new Principal();
+        principal.receberDados(funcionarioAtivo);
+        principal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if (jTextField1.getText().isEmpty()) {
@@ -228,21 +232,21 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here: voltar
-        Principal principal = new Principal();
-        principal.receberDados(funcionarioAtivo);
-        principal.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here: cadastrar
+        Cadastro_Pacientes cadastro = new Cadastro_Pacientes();
+        cadastro.receberDados(funcionarioAtivo);
+        cadastro.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here: apagar
         int row = jTable2.getSelectedRow();
         try {
             int funcId = Integer.parseInt(jTable2.getModel().getValueAt(row, 0).toString());
             if (funcId > -1) {
-                FuncionariosDao func = new FuncionariosDao();
+                PacientesDao func = new PacientesDao();
                 func.excluir(funcId);
                 JOptionPane.showMessageDialog(jPanel1, "Colaborador apagado com sucesso!");
                 listarTodos();
@@ -252,17 +256,17 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(jPanel1, "Nenhum colaborador selecionado");
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here: editar
         int row = jTable2.getSelectedRow();
         try {
             int funcId = Integer.parseInt(jTable2.getModel().getValueAt(row, 0).toString());
             if (funcId > -1) {
-                FuncionariosDao func = new FuncionariosDao();
+                PacientesDao func = new PacientesDao();
                 if (func.consultarExistencia(funcId)) {
-                    Cadastro_Usuarios cadastro = new Cadastro_Usuarios();
+                    Cadastro_Pacientes cadastro = new Cadastro_Pacientes();
                     cadastro.receberDados(funcionarioAtivo);
                     cadastro.receberDadosEditar(funcId);
                     cadastro.setVisible(true);
@@ -273,34 +277,26 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(jPanel1, "Nenhum colaborador selecionado");
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
         // TODO add your handling code here:
         jTextField1.setText("");
     }//GEN-LAST:event_jTextField1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here: cadastrar
-        Cadastro_Usuarios cadastro = new Cadastro_Usuarios();
-        cadastro.receberDados(funcionarioAtivo);
-        cadastro.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public void listarTodos() {
-        FuncionariosDao func = new FuncionariosDao();
-        ArrayList<Funcionarios> list = func.consultar();
+        PacientesDao func = new PacientesDao();
+        ArrayList<Pacientes> list = func.consultar();
         listarColaboradores(list);
     }
 
     public void listarByNome() {
-        FuncionariosDao func = new FuncionariosDao();
-        ArrayList<Funcionarios> list = func.consultarNomes(jTextField1.getText());
+        PacientesDao func = new PacientesDao();
+        ArrayList<Pacientes> list = func.consultarNome(jTextField1.getText());
         listarColaboradores(list);
     }
 
-    public void listarColaboradores(ArrayList<Funcionarios> list) {
+    public void listarColaboradores(ArrayList<Pacientes> list) {
         jTable2.removeAll();
         DefaultTableModel model = new DefaultTableModel(0, 0);
         String[] collumns = {
@@ -308,14 +304,15 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
             "Nome Completo",
             "Email",
             "Cpf",
-            "Especialidade"
+            "Sexo",
+            "Tipo Sanguíneo"
         };
         model.setColumnIdentifiers(collumns);
-        jTable2.setModel(model);
         jTable2.getTableHeader().setEnabled(false);
+        jTable2.setModel(model);
         // n deixar editar as tabelas
-        for (Funcionarios s : list) {
-            model.addRow(new Object[]{s.getId(), s.getNomeCompleto(), s.getEmail(), s.getCpf(), especialidades[s.getEspecialidadeId()]});
+        for (Pacientes s : list) {
+            model.addRow(new Object[]{s.getId(), s.getNomeCompleto(), s.getEmail(), s.getCpf(), s.getSexo(), s.getTipo_Sanguineo()});
         }
     }
 
@@ -333,41 +330,34 @@ public class Listar_Colaboradores extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listar_Colaboradores.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Pacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Listar_Colaboradores().setVisible(true);
+                new Listar_Pacientes().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
